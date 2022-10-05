@@ -11,7 +11,7 @@ while True:
     # Kullanıcıdan eylem seçmesini istiyoruz
     eylem = input("------------------------\nŞifre oluşturmak için [1]\nŞifreleri görüntülemek için [2]\n------------------------\nSeçiminiz: ")
     
-    if eylem != "1" and eylem != "2":
+    if eylem not in ("1", "2"):
         print("Lütfen geçerli bir eylem seçin")
         continue
 
@@ -39,11 +39,11 @@ while True:
 
         # password istediğmiz uzunlukta olana kadar rastgele karakterler seçiyoruz
         while len(password) < pass_len:
-            if pass_type == 2 or pass_type == 3 or pass_type == 4:
+            if pass_type in (2, 3, 4):
                 password.append(random.choice(lower+upper))
             if len(password) ==  pass_len:
                 break
-            if pass_type == 1 or pass_type == 3 or pass_type == 4:
+            if pass_type in (1, 3, 4):
                 password.append(random.choice(numbers))
             if len(password) ==  pass_len:
                 break
@@ -79,7 +79,7 @@ while True:
     
     # programı tekrar çalıştırmak isteyip istemediğimizi soruyoruz
     tekrar = input("\n??????????????????????????????????????\n? Tekrar çalıştırmak istiyor musunuz ?\n??????????????????????????????????????\n (E/H): ")
-    if tekrar == "E" or tekrar == "e":
+    if tekrar in ("E", "e"):
         continue
     else:
         break
